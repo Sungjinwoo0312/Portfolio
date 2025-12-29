@@ -229,3 +229,9 @@
     padding-bottom: 64px;
   }
 }
+@media (max-width: 768px) {
+  .archive-item {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
