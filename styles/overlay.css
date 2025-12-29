@@ -251,3 +251,9 @@
     scroll-snap-align: center;
   }
 }
+@media (max-width: 768px) {
+  .archive-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
