@@ -1,5 +1,5 @@
 /* =====================================================
-   ARCHIVE OVERLAY — SNAP SCROLL LAYOUT (FIXED + VISIBLE)
+   ARCHIVE OVERLAY — SNAP SCROLL LAYOUT
 ===================================================== */
 
 
@@ -44,7 +44,7 @@
 
 
 /* =====================================================
-   PANEL (VISIBLE SURFACE — CRITICAL FIX)
+   PANEL
 ===================================================== */
 
 .overlay-panel {
@@ -55,15 +55,13 @@
   max-width: 1200px;
   height: 85vh;
 
-  /* 🔥 CRITICAL: panel must be visible */
-  background: rgba(15, 15, 15, 0.96);
+  background: transparent;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
-  border-radius: 6px;
-
-  overflow: hidden;
+  overflow: visible;
 }
 
 
@@ -73,8 +71,8 @@
 
 .overlay-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 24px;
+  right: 24px;
 
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
@@ -100,9 +98,7 @@
   font-size: clamp(28px, 4vw, 36px);
   font-weight: 400;
 
-  padding: 32px 24px 0;
-  margin-bottom: 32px;
-
+  margin-bottom: 40px;
   text-align: center;
 }
 
@@ -114,12 +110,13 @@
 .overlay-content {
   position: relative;
   width: 100%;
-  flex: 1;
+  height: 100%;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
-  /* 🔥 CRITICAL: allow wheel events */
+  padding-top: 24px;
+
   overflow: hidden;
 }
 
@@ -147,6 +144,8 @@
 .archive-item {
   width: 320px;
   flex-shrink: 0;
+
+  height: auto;
 
   opacity: 0.28;
   transform: scale(0.88);
@@ -210,7 +209,6 @@
 @media (max-width: 768px) {
   .overlay-panel {
     height: 100vh;
-    border-radius: 0;
   }
 
   .archive-item {
@@ -223,5 +221,11 @@
 
   .overlay-title {
     margin-bottom: 24px;
+  }
+
+  /* 🔧 FINAL MOBILE FIX — DO NOT TOUCH ANYTHING ELSE */
+  .overlay-content {
+    overflow-y: auto;
+    padding-bottom: 64px;
   }
 }
