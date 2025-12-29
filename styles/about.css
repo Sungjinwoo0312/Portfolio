@@ -4,7 +4,8 @@
 
 .about {
   width: 100%;
-  padding: 160px 24px;
+  padding: 96px 24px;              /* CHANGED */
+
   position: relative;
   z-index: 2;
 }
@@ -23,27 +24,27 @@
   font-family: 'Canela', serif;
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 400;
-  margin-bottom: 32px;
+
+  margin-bottom: 24px;             /* CHANGED */
 }
 
 /* =====================================================
-   PARAGRAPHS (THIS IS THE IMPORTANT PART)
+   PARAGRAPHS
 ===================================================== */
 
 .about p {
   font-size: 16px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 20px;
 
-  /* 🔥 CRITICAL FIXES */
+  margin-bottom: 18px;             /* CHANGED */
+
   height: auto;
   max-height: none;
   overflow: visible;
   display: block;
 }
 
-/* Remove margin from last paragraph */
 .about p:last-child {
   margin-bottom: 0;
 }
@@ -54,7 +55,7 @@
 
 @media (max-width: 768px) {
   .about {
-    padding: 120px 20px;
+    padding: 72px 20px;            /* CHANGED */
   }
 
   .about p {
