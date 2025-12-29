@@ -1,64 +1,63 @@
 /* =====================================================
-   ABOUT SECTION — FIXED
+ABOUT SECTION — FIXED
 ===================================================== */
 
 .about {
-  width: 100%;
-  padding: 96px 24px;              /* CHANGED */
-
-  position: relative;
-  z-index: 2;
+width: 100%;
+padding: 160px 24px;
+position: relative;
+z-index: 2;
 }
 
 .about .section-inner {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: left;
+max-width: 720px;
+margin: 0 auto;
+text-align: left;
 }
 
 /* =====================================================
-   HEADING
+HEADING
 ===================================================== */
 
 .about h2 {
-  font-family: 'Canela', serif;
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 400;
-
-  margin-bottom: 24px;             /* CHANGED */
+font-family: 'Canela', serif;
+font-size: clamp(32px, 5vw, 48px);
+font-weight: 400;
+margin-bottom: 32px;
 }
 
 /* =====================================================
-   PARAGRAPHS
+PARAGRAPHS (THIS IS THE IMPORTANT PART)
 ===================================================== */
 
 .about p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.75);
+font-size: 16px;
+line-height: 1.7;
+color: rgba(255, 255, 255, 0.75);
+margin-bottom: 20px;
 
-  margin-bottom: 18px;             /* CHANGED */
-
-  height: auto;
-  max-height: none;
-  overflow: visible;
-  display: block;
+/* 🔥 CRITICAL FIXES */
+height: auto;
+max-height: none;
+overflow: visible;
+display: block;
 }
 
+/* Remove margin from last paragraph */
 .about p:last-child {
-  margin-bottom: 0;
+margin-bottom: 0;
 }
 
 /* =====================================================
-   RESPONSIVE
+RESPONSIVE
 ===================================================== */
 
 @media (max-width: 768px) {
-  .about {
-    padding: 72px 20px;            /* CHANGED */
-  }
+.about {
+padding: 120px 20px;
+}
 
-  .about p {
-    font-size: 15px;
-  }
+.about p {
+font-size: 15px;
+}
 }
