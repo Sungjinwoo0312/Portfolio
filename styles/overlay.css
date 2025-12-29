@@ -235,3 +235,19 @@
     overflow-y: auto;
   }
 }
+@media (max-width: 768px) {
+  .archive-track {
+    transform: none !important;
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  .archive-track {
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+  }
+
+  .archive-item {
+    scroll-snap-align: center;
+  }
+}
