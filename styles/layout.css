@@ -1,0 +1,78 @@
+/* =====================================================
+   GLOBAL PAGE BACKGROUND (MESH + NOISE)
+===================================================== */
+
+.page-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(800px 600px at 20% 30%, rgba(255,255,255,0.04), transparent 60%),
+    radial-gradient(600px 500px at 80% 20%, rgba(255,255,255,0.035), transparent 60%),
+    radial-gradient(700px 600px at 50% 80%, rgba(255,255,255,0.03), transparent 60%),
+    #0b0b0b;
+
+  pointer-events: none;
+}
+
+.noise-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+
+  background-image: url('../assets/noise.png');
+  background-repeat: repeat;
+  opacity: 0.05;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   MAIN STACKING CONTEXT
+===================================================== */
+
+/* 🔥 FIXED: exclude overlay from forced stacking context */
+body > *:not(.overlay) {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =====================================================
+   SECTION LAYOUT SYSTEM
+===================================================== */
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-family: 'Canela', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 72px;
+  text-align: center;
+}
+
+
+/* =====================================================
+   MAIN SPACING RHYTHM
+===================================================== */
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+}
+
+
+/* =====================================================
+   OVERLAY SAFETY
+===================================================== */
+
+body.overlay-open {
+  overflow: hidden;
+}

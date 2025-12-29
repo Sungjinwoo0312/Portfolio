@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Amaan Hussain — Graphic Designer" />
+  <title>Amaan Hussain — Portfolio</title>
+
+  <!-- Base & Layout -->
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+
+  <!-- Sections -->
+  <link rel="stylesheet" href="styles/hero.css" />
+  <link rel="stylesheet" href="styles/work.css" />
+  <link rel="stylesheet" href="styles/about.css" />
+  <link rel="stylesheet" href="styles/contact.css" />
+  <link rel="stylesheet" href="styles/overlay.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+</head>
+
+<body>
+
+  <!-- BACKGROUND LAYERS -->
+  <div class="page-background"></div>
+  <div class="noise-layer"></div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+
+      <!-- DESIGN WORD -->
+      <div class="hero-word">
+        <span data-letter="D">D</span>
+        <span data-letter="E">E</span>
+        <span data-letter="S">S</span>
+        <span data-letter="I">I</span>
+        <span data-letter="G">G</span>
+        <span data-letter="N">N</span>
+      </div>
+
+      <!-- NAME + TAGLINE (SCROLL ONLY) -->
+      <div class="hero-meta">
+        <h1 class="name">Amaan Hussain</h1>
+        <p class="tagline">Design, where ideas lead the form.</p>
+      </div>
+
+      <!-- PRINCIPLE SLOT (CLICK ONLY) -->
+      <div class="hero-depth-slot"></div>
+
+    </div>
+  </header>
+
+  <!-- GRID FLASH -->
+  <div class="grid-flash"></div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- SELECTED WORK -->
+    <section class="selected-work" id="selected-work">
+      <div class="section-inner">
+
+        <h2>Selected Work</h2>
+
+        <div class="selected-list">
+
+          <div class="project-row">
+            <button class="project-trigger">
+              <span class="project-index">01</span>
+              <span class="project-label">Interstellar</span>
+            </button>
+            <div class="project-content">
+              <img src="assets/images/projects/selected/interstellar-hero.jpg" alt="" />
+              <h3>Interstellar — Survival Beyond Earth</h3>
+              <p>
+                Concept poster reinterpreting human survival through scale,
+                isolation, and cosmic perspective.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-row">
+            <button class="project-trigger">
+              <span class="project-index">02</span>
+              <span class="project-label">Thumbnail System</span>
+            </button>
+            <div class="project-content">
+              <img src="assets/images/projects/selected/thumbnail-system-hero.jpg" alt="" />
+              <h3>High-Impact Thumbnail System</h3>
+              <p>
+                Designed for clarity and hierarchy under extreme visual
+                constraints.
+              </p>
+            </div>
+          </div>
+
+          <!-- 🔥 REPLACED PROJECT (ONLY CHANGE) -->
+          <div class="project-row">
+            <button class="project-trigger">
+              <span class="project-index">03</span>
+              <span class="project-label">VOID / Formless</span>
+            </button>
+            <div class="project-content">
+              <img src="assets/images/projects/selected/void-formless.jpg" alt="" />
+              <h3>VOID — Formless Fashion System</h3>
+              <p>
+                A fashion poster system exploring identity, form, and modern
+                streetwear culture through typographic dominance, layered
+                hierarchy, and editorial composition.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="view-all">View all works</button>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+      <div class="section-inner">
+        <h2>About</h2>
+
+        <p>
+          I’m Amaan Hussain, a graphic designer focused on building visual systems
+          where ideas lead form rather than trends or surface aesthetics.
+        </p>
+
+        <p>
+          I approach design as a process of deliberate decision-making —
+          understanding the problem first, defining priorities, and then shaping
+          visuals that communicate clearly and intentionally.
+        </p>
+
+        <p>
+          My work spans conceptual posters, visual systems, and digital layouts,
+          with a strong emphasis on hierarchy, restraint, and narrative clarity.
+          I believe good design should feel considered, grounded, and purposeful.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+      <div class="contact-inner">
+        <p>Open to meaningful collaborations.</p>
+        <a href="mailto:amaanhussain12344@gmail.com">
+          amaanhussain12344@gmail.com
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ARCHIVE OVERLAY -->
+  <div class="overlay">
+    <div class="overlay-backdrop"></div>
+
+    <div class="overlay-panel">
+      <button class="overlay-close" aria-label="Close">✕</button>
+
+      <div class="overlay-content">
+        <h2 class="overlay-title">All Works</h2>
+
+        <div class="archive-track">
+          <!-- Archive items will live here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="scripts/hero.js"></script>
+  <script src="scripts/work.js"></script>
+  <script src="scripts/overlay.js"></script>
+
+</body>
+</html>

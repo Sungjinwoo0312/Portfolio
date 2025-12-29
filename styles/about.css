@@ -1,0 +1,63 @@
+/* =====================================================
+   ABOUT SECTION — FIXED
+===================================================== */
+
+.about {
+  width: 100%;
+  padding: 160px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.about .section-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.about h2 {
+  font-family: 'Canela', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+/* =====================================================
+   PARAGRAPHS (THIS IS THE IMPORTANT PART)
+===================================================== */
+
+.about p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 20px;
+
+  /* 🔥 CRITICAL FIXES */
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  display: block;
+}
+
+/* Remove margin from last paragraph */
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+  .about {
+    padding: 120px 20px;
+  }
+
+  .about p {
+    font-size: 15px;
+  }
+}
