@@ -4,7 +4,7 @@
 
 .contact {
   width: 100%;
-  padding: 160px 0 200px;
+  padding: 96px 0 120px;          /* CHANGED */
 
   position: relative;
   z-index: 2;
@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;                      /* CHANGED */
 
   text-align: center;
 }
@@ -63,7 +63,7 @@
 
 @media (max-width: 768px) {
   .contact {
-    padding: 120px 0 160px;
+    padding: 72px 0 96px;         /* CHANGED */
   }
 
   .contact-email {
