@@ -1,273 +1,268 @@
 /* =====================================================
-   HERO — BASE
+HERO — BASE
 ===================================================== */
 
 .hero {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;            /* CHANGED */
-  justify-content: center;
-  padding-top: 18vh;                  /* ADDED */
-  overflow: hidden;
-  z-index: 2;
+position: relative;
+min-height: 100vh;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+z-index: 2;
 }
 
 .hero-inner {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 24px;
-  text-align: center;
-  z-index: 3;
+position: relative;
+width: 100%;
+max-width: 1200px;
+padding: 0 24px;
+text-align: center;
+z-index: 3;
 }
 
 /* =====================================================
-   DESIGN WORD
+DESIGN WORD
 ===================================================== */
 
 .hero-word {
-  display: flex;
-  justify-content: center;
-  gap: 0.06em;
+display: flex;
+justify-content: center;
+gap: 0.06em;
 
-  font-family: 'Canela', serif;
-  font-weight: 400;
-  font-size: clamp(80px, 18vw, 180px);
-  line-height: 0.9;
+font-family: 'Canela', serif;
+font-weight: 400;
+font-size: clamp(80px, 18vw, 180px);
+line-height: 0.9;
 
-  letter-spacing: 0.02em;
-  opacity: 1;
-  transform: scale(1);
+letter-spacing: 0.02em;
+opacity: 1;
+transform: scale(1);
 
-  transition:
-    letter-spacing 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.8s ease,
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+transition:
+letter-spacing 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+opacity 0.8s ease,
+transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Letters */
 .hero-word span {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
+position: relative;
+display: inline-block;
+cursor: pointer;
 
-  transition:
-    transform 0.18s ease,
-    opacity 0.18s ease;
+transition:
+transform 0.18s ease,
+opacity 0.18s ease;
 }
 
 /* Stroke overlay */
 .hero-word span::after {
-  content: attr(data-letter);
-  position: absolute;
-  inset: 0;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 122, 24, 0.85);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.18s ease;
+content: attr(data-letter);
+position: absolute;
+inset: 0;
+color: transparent;
+-webkit-text-stroke: 1px rgba(255, 122, 24, 0.85);
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.18s ease;
 }
 
 /* Hover rise */
 .hero-word span.rise {
-  transform: translateY(-6px);
+transform: translateY(-6px);
 }
 
 .hero-word span.rise::after {
-  opacity: 1;
+opacity: 1;
 }
 
 /* Active letter (clicked) */
 .hero-word span.active {
-  transform: scale(1.06);
+transform: scale(1.06);
 }
 
 .hero-word span.active::after {
-  opacity: 1;
+opacity: 1;
 }
 
 /* =====================================================
-   HERO META (NAME + TAGLINE)
+HERO META (NAME + TAGLINE)
 ===================================================== */
 
 .hero-meta {
-  margin-top: 20px;                   /* CHANGED */
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+margin-top: 28px;
+opacity: 0;
+transform: translateY(14px);
+transition:
+opacity 0.6s ease,
+transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-meta.visible {
-  opacity: 1;
-  transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
 
 .name {
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+font-size: 14px;
+font-weight: 500;
+letter-spacing: 0.04em;
 }
 
 .tagline {
-  margin-top: 6px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.65);
+margin-top: 6px;
+font-size: 13px;
+color: rgba(255, 255, 255, 0.65);
 }
 
 /* =====================================================
-   SCROLL STATE (BACKGROUND MODE)
+SCROLL STATE (BACKGROUND MODE)
 ===================================================== */
 
 .hero.hero-settled .hero-word {
-  letter-spacing: 0.34em;
-  opacity: 0.32;
-  transform: scale(0.92);
+letter-spacing: 0.34em;
+opacity: 0.32;
+transform: scale(0.92);
 }
 
 /* Disable hover only while scrolled */
 .hero.hero-settled .hero-word span {
-  pointer-events: none;
+pointer-events: none;
 }
 
 /* =====================================================
-   PRINCIPLE STATE (CLICK MODE)
+PRINCIPLE STATE (CLICK MODE)
 ===================================================== */
 
 .hero.principle-active .hero-word {
-  letter-spacing: 0.4em;
-  opacity: 0.14;
-  transform: scale(0.88);
+letter-spacing: 0.4em;
+opacity: 0.14;
+transform: scale(0.88);
 }
 
 /* Disable interaction while principle open */
 .hero.principle-active .hero-word span {
-  pointer-events: none;
+pointer-events: none;
 }
 
 /* =====================================================
-   PRINCIPLE SLOT
+PRINCIPLE SLOT
 ===================================================== */
 
 .hero-depth-slot {
-  position: relative;
-  margin-top: 48px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 4;
+position: relative;
+margin-top: 48px;
+width: 100%;
+display: flex;
+justify-content: center;
+z-index: 4;
 }
 
 /* Principle container */
 .principle {
-  max-width: 520px;
-  text-align: left;
+max-width: 520px;
+text-align: left;
 
-  opacity: 0;
-  transform: translateY(14px);
-  animation: principleIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+opacity: 0;
+transform: translateY(14px);
+animation: principleIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes principleIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+to {
+opacity: 1;
+transform: translateY(0);
+}
 }
 
 .principle-title {
-  font-family: 'Canela', serif;
-  font-size: 42px;
-  font-weight: 400;
-  line-height: 1;
+font-family: 'Canela', serif;
+font-size: 42px;
+font-weight: 400;
+line-height: 1;
 }
 
 .principle-title small {
-  font-family: 'Inter', sans-serif;
-  font-size: 22px;
-  margin-left: 6px;
-  opacity: 0.7;
+font-family: 'Inter', sans-serif;
+font-size: 22px;
+margin-left: 6px;
+opacity: 0.7;
 }
 
 .principle-text {
-  margin-top: 14px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.72);
+margin-top: 14px;
+font-size: 15px;
+line-height: 1.6;
+color: rgba(255, 255, 255, 0.72);
 }
 
 /* =====================================================
-   GRID FLASH (CINEMATIC)
+GRID FLASH (CINEMATIC)
 ===================================================== */
 
 .grid-flash {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 1;
 
-  background-image:
-    linear-gradient(rgba(255, 122, 24, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 122, 24, 0.05) 1px, transparent 1px);
+background-image:
+linear-gradient(rgba(255, 122, 24, 0.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255, 122, 24, 0.05) 1px, transparent 1px);
 
-  background-size: 42px 42px;
-  opacity: 0;
+background-size: 42px 42px;
+opacity: 0;
 }
 
 .grid-flash.show {
-  animation: gridPulse 1s ease-out forwards;
+animation: gridPulse 1s ease-out forwards;
 }
 
 @keyframes gridPulse {
-  0%   { opacity: 0; }
-  35%  { opacity: 0.22; }
-  100% { opacity: 0; }
+0%   { opacity: 0; }
+35%  { opacity: 0.22; }
+100% { opacity: 0; }
 }
 
 /* =====================================================
-   HARD RESET (IDLE STATE GUARANTEE)
+HARD RESET (IDLE STATE GUARANTEE)
 ===================================================== */
 
 .hero:not(.hero-settled):not(.principle-active) .hero-word {
-  letter-spacing: 0.02em;
-  opacity: 1;
-  transform: scale(1);
+letter-spacing: 0.02em;
+opacity: 1;
+transform: scale(1);
 }
 
 .hero:not(.hero-settled):not(.principle-active) .hero-word span {
-  pointer-events: auto;
+pointer-events: auto;
 }
 
 .hero:not(.hero-settled):not(.principle-active) .hero-meta {
-  opacity: 0;
-  transform: translateY(14px);
+opacity: 0;
+transform: translateY(14px);
 }
 
 .hero:not(.hero-settled):not(.principle-active) .hero-depth-slot {
-  display: none;
+display: none;
 }
 
 /* =====================================================
-   RESPONSIVE
+RESPONSIVE
 ===================================================== */
 
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 14vh;                /* ADDED */
-  }
+.hero-word {
+font-size: clamp(64px, 20vw, 120px);
+}
 
-  .hero-word {
-    font-size: clamp(64px, 20vw, 120px);
-  }
+.principle-title {
+font-size: 34px;
+}
 
-  .principle-title {
-    font-size: 34px;
-  }
-
-  .principle-text {
-    font-size: 14px;
-  }
+.principle-text {
+font-size: 14px;
+}
 }
