@@ -71,6 +71,21 @@ const archiveProjects = [
     img: 'assets/images/projects/archive/experimental-layout.png',
     title: 'Experimental Editorial Layout',
     text: 'Exploratory layout testing rhythm and typographic tension.'
+  },
+  {
+    img: 'assets/images/projects/archive/imagined-worlds-hero.jpg',
+    title: 'Spatial Echoes',
+    text: 'A conceptual artwork focused on mood, scale, and spatial ambiguity, using atmosphere and depth to suggest narrative rather than define it.'
+  },
+  {
+    img: 'assets/images/projects/archive/1408-poster.png',
+    title: '1408 — Psychological Confinement',
+    text: 'A horror concept poster focusing on psychological collapse rather than physical threat.'
+  },
+  {
+    img: 'assets/images/projects/archive/squid-game-poster.png',
+    title: 'Squid Game — Survival as Spectacle',
+    text: 'Concept poster exploring power, greed, and dehumanization through bold symbolism and hierarchy.'
   }
 ];
 
@@ -236,3 +251,4 @@ document.addEventListener('keydown', (e) => {
 ===================================================== */
 
 window.openArchive = openArchive;
+
