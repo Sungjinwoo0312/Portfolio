@@ -138,6 +138,8 @@ function populateArchive() {
 ===================================================== */
 
 function updatePosition() {
+  if (window.innerWidth <= 768) return;
+
   const offset =
     (overlayContent.clientWidth / 2) -
     (itemWidth / 2) -
@@ -251,4 +253,5 @@ document.addEventListener('keydown', (e) => {
 ===================================================== */
 
 window.openArchive = openArchive;
+
 
