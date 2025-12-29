@@ -20,6 +20,9 @@
   pointer-events: none;
 
   transition: opacity 0.35s ease;
+
+  /* ✅ FIX: mobile viewport height bug */
+  min-height: 100svh;
 }
 
 .overlay.active {
@@ -208,7 +211,8 @@
 
 @media (max-width: 768px) {
   .overlay-panel {
-    height: 100vh;
+    /* ✅ FIX: avoid 100vh dark stacking */
+    min-height: 100svh;
   }
 
   .archive-item {
@@ -227,20 +231,32 @@
   .overlay-content {
     overflow-y: auto;
     padding-bottom: 64px;
+
+    /* ✅ ensure content stays above backdrop */
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ✅ FIX: stop mobile vignette darkening */
+  .overlay-backdrop {
+    background: rgba(8, 8, 8, 0.6);
   }
 }
+
 @media (max-width: 768px) {
   .archive-item {
     max-height: 80vh;
     overflow-y: auto;
   }
 }
+
 @media (max-width: 768px) {
   .archive-track {
     transform: none !important;
     justify-content: flex-start;
   }
 }
+
 @media (max-width: 768px) {
   .archive-track {
     scroll-snap-type: x mandatory;
@@ -251,6 +267,7 @@
     scroll-snap-align: center;
   }
 }
+
 @media (max-width: 768px) {
   .archive-item {
     opacity: 1 !important;
