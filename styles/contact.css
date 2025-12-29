@@ -1,72 +1,71 @@
 /* =====================================================
-   CONTACT SECTION
+CONTACT SECTION
 ===================================================== */
 
 .contact {
-  width: 100%;
-  padding: 96px 0 120px;          /* CHANGED */
+width: 100%;
+padding: 160px 0 200px;
 
-  position: relative;
-  z-index: 2;
+position: relative;
+z-index: 2;
 }
 
 .contact-inner {
-  max-width: 720px;
-  margin: 0 auto;
+max-width: 720px;
+margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;                      /* CHANGED */
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 16px;
 
-  text-align: center;
+text-align: center;
 }
 
 .contact-line {
-  font-size: 15px;
-  color: rgba(255,255,255,0.7);
+font-size: 15px;
+color: rgba(255,255,255,0.7);
 }
 
 .contact-email {
-  font-size: 18px;
-  font-weight: 500;
+font-size: 18px;
+font-weight: 500;
 
-  letter-spacing: 0.04em;
-  color: #f2f2f2;
+letter-spacing: 0.04em;
+color: #f2f2f2;
 
-  position: relative;
+position: relative;
 }
 
 .contact-email::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
+content: '';
+position: absolute;
+left: 0;
+bottom: -6px;
 
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,0.45);
+width: 100%;
+height: 1px;
+background: rgba(255,255,255,0.45);
 
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
+transform: scaleX(0);
+transform-origin: left;
+transition: transform 0.25s ease;
 }
 
 .contact-email:hover::after {
-  transform: scaleX(1);
+transform: scaleX(1);
 }
 
-
 /* =====================================================
-   MOBILE
+MOBILE
 ===================================================== */
 
 @media (max-width: 768px) {
-  .contact {
-    padding: 72px 0 96px;         /* CHANGED */
-  }
+.contact {
+padding: 120px 0 160px;
+}
 
-  .contact-email {
-    font-size: 16px;
-  }
+.contact-email {
+font-size: 16px;
+}
 }
