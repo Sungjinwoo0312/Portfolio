@@ -18,7 +18,7 @@ if (!overlay || !overlayContent || !archiveTrack) {
 
 
 /* =====================================================
-   ARCHIVE DATA (ALL 13 — UNCHANGED)
+   ARCHIVE DATA
 ===================================================== */
 
 const archiveProjects = [
@@ -71,21 +71,6 @@ const archiveProjects = [
     img: 'assets/images/projects/archive/experimental-layout.png',
     title: 'Experimental Editorial Layout',
     text: 'Exploratory layout testing rhythm and typographic tension.'
-  },
-  {
-    img: 'assets/images/projects/archive/imagined-worlds-hero.jpg',
-    title: 'Spatial Echoes',
-    text: 'A conceptual artwork focused on mood, scale, and spatial ambiguity, using atmosphere and depth to suggest narrative rather than define it.'
-  },
-  {
-    img: 'assets/images/projects/archive/1408-poster.png',
-    title: '1408 — Psychological Confinement',
-    text: 'A horror concept poster focusing on psychological collapse rather than physical threat.'
-  },
-  {
-    img: 'assets/images/projects/archive/squid-game-poster.png',
-    title: 'Squid Game — Survival as Spectacle',
-    text: 'Concept poster exploring power, greed, and dehumanization through bold symbolism and hierarchy.'
   }
 ];
 
@@ -97,7 +82,10 @@ const archiveProjects = [
 let currentIndex = 0;
 let isOpen = false;
 let itemWidth = 0;
-let sidePadding = 0; // 🔧 FIX ADDED
+
+/* 🔧 MOBILE TOUCH STATE (ADDED) */
+let touchStartX = 0;
+let touchEndX = 0;
 
 
 /* =====================================================
@@ -124,13 +112,7 @@ function populateArchive() {
     const firstItem = archiveTrack.querySelector('.archive-item');
     if (!firstItem) return;
 
-    itemWidth = firstItem.offsetWidth + 56; // includes gap
-
-    // 🔧 CRITICAL FIX: allow last items to center
-    sidePadding = (overlayContent.clientWidth / 2) - (itemWidth / 2);
-    archiveTrack.style.paddingLeft = `${sidePadding}px`;
-    archiveTrack.style.paddingRight = `${sidePadding}px`;
-
+    itemWidth = firstItem.offsetWidth + 56;
     updatePosition();
   });
 }
@@ -141,7 +123,10 @@ function populateArchive() {
 ===================================================== */
 
 function updatePosition() {
-  const offset = -(currentIndex * itemWidth);
+  const offset =
+    (overlayContent.clientWidth / 2) -
+    (itemWidth / 2) -
+    (currentIndex * itemWidth);
 
   archiveTrack.style.transform = `translateX(${offset}px)`;
 
@@ -153,7 +138,7 @@ function updatePosition() {
 
 
 /* =====================================================
-   SCROLL CONTROL
+   SCROLL CONTROL (DESKTOP)
 ===================================================== */
 
 function onWheel(e) {
@@ -164,6 +149,33 @@ function onWheel(e) {
   if (e.deltaY > 0 && currentIndex < archiveProjects.length - 1) {
     currentIndex++;
   } else if (e.deltaY < 0 && currentIndex > 0) {
+    currentIndex--;
+  }
+
+  updatePosition();
+}
+
+
+/* =====================================================
+   TOUCH CONTROL (MOBILE) — ADDED
+===================================================== */
+
+function onTouchStart(e) {
+  if (!isOpen) return;
+  touchStartX = e.touches[0].clientX;
+}
+
+function onTouchEnd(e) {
+  if (!isOpen) return;
+  touchEndX = e.changedTouches[0].clientX;
+
+  const delta = touchStartX - touchEndX;
+
+  if (Math.abs(delta) < 50) return;
+
+  if (delta > 0 && currentIndex < archiveProjects.length - 1) {
+    currentIndex++;
+  } else if (delta < 0 && currentIndex > 0) {
     currentIndex--;
   }
 
@@ -187,6 +199,8 @@ function openArchive() {
   document.body.classList.add('overlay-open');
 
   overlayContent.addEventListener('wheel', onWheel, { passive: false });
+  overlayContent.addEventListener('touchstart', onTouchStart, { passive: true });
+  overlayContent.addEventListener('touchend', onTouchEnd);
 }
 
 function closeArchive() {
@@ -198,6 +212,8 @@ function closeArchive() {
   document.body.classList.remove('overlay-open');
 
   overlayContent.removeEventListener('wheel', onWheel);
+  overlayContent.removeEventListener('touchstart', onTouchStart);
+  overlayContent.removeEventListener('touchend', onTouchEnd);
 }
 
 
